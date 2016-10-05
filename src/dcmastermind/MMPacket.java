@@ -46,7 +46,7 @@ public class MMPacket {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         byte[] byteBuffer = new byte[BUFSIZE];
        
-        for(int i;(i=in.read(byteBuffer))!= 1;){
+        for(int i;(i=in.read(byteBuffer))!= -1;){
             baos.write(byteBuffer,0,i);
         }
         byte result[] = baos.toByteArray();
