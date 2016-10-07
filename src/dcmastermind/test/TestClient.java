@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dcmastermind;
+package dcmastermind.test;
 
+import dcmastermind.MMPacket;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -15,10 +16,17 @@ import java.net.Socket;
 public class TestClient {
     
     public static void main(String[] args) throws IOException{
+        System.out.println("line1");
         int server_port = 50000;
-        byte[] packet = "hello world".getBytes();
-        Socket soc = new Socket("10.172.14.124",server_port);
+         System.out.println("line2");
+        byte[] packet = new byte[]{0x00000000,0x00000001,0x00000002,0x000002};
+        Socket soc = new Socket("10.172.11.194",server_port);
+        System.out.println("Connected to server...sending echo string");
         MMPacket mmp = new MMPacket(soc);
         mmp.writePackets(packet);
+        packet = mmp.readPackets();
+        for(byte b : packet)
+            System.out.println(b);
+        soc.close();
     }
 }

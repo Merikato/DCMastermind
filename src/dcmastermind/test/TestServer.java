@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dcmastermind;
+package dcmastermind.test;
 
+import dcmastermind.MMPacket;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 public class TestServer {
     
     public static void main(String[] args) throws IOException{
+        System.out.println("Server started");
         int server_port = 50000;
         ServerSocket server_socket = new ServerSocket(server_port);
         
@@ -25,6 +27,7 @@ public class TestServer {
             Socket client_socket = server_socket.accept();
             MMPacket mmp = new MMPacket(client_socket);
             byte[] bs = mmp.readPackets();
+            mmp.writePackets(bs);
             System.out.println(new String(bs,StandardCharsets.UTF_8));
             client_socket.close();
         }

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 
 /**
  *
@@ -43,14 +44,18 @@ public class MMPacket {
      * @throws IOException 
      */
     public byte[] readPackets()throws IOException{
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
         byte[] byteBuffer = new byte[BUFSIZE];
-       
-        for(int i;(i=in.read(byteBuffer))!= -1;){
-            baos.write(byteBuffer,0,i);
+        int total_bytes = 0;
+        int bytes;
+        while(total_bytes < BUFSIZE){
+            
+            if((bytes = in.read(byteBuffer, total_bytes, BUFSIZE - total_bytes))== -1){
+                throw new SocketException("Connection Closed");
+            }
+            total_bytes += bytes;
         }
-        byte result[] = baos.toByteArray();
-        return result;
+        
+        return byteBuffer;
     }
     /**
      * takes in data to be written to the out of the packet.
