@@ -34,7 +34,7 @@ public class MMServerSession {
        for(int i=0;i<packet.length;i++)
        {
            allPacket = packet[i];
-           if(allPacket == 0x00000000){
+           if(allPacket == 0x00000010){
                 play = true;
                 return play;
            }
@@ -42,8 +42,7 @@ public class MMServerSession {
                 playAgain = false;
             //allPacket += packet[i]; //??
            }
-       }
-       
+       }     
        return play;
     }
     public void action() throws IOException{
@@ -56,7 +55,7 @@ public class MMServerSession {
                 // read packet from user.
                 byte[] colorMessage = mmPacket.readPacket();
                 //check if msg is color
-                int colorRange =setColour(colorMessage[0]);
+                int colorRange = setColour(colorMessage[0]);
                 if(colorRange != -1)
                 {                
                     //get user answer
