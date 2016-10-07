@@ -43,7 +43,7 @@ public class MMPacket {
      * @return
      * @throws IOException 
      */
-    public byte[] readPackets()throws IOException{
+    public byte[] readPacket()throws IOException{
         byte[] byteBuffer = new byte[BUFSIZE];
         int total_bytes = 0;
         int bytes;
@@ -62,7 +62,7 @@ public class MMPacket {
      * @param bytes
      * @throws IOException 
      */
-    public void writePackets(byte[] bytes)throws IOException{
+    public void writePacket(byte[] bytes)throws IOException{
         out.write(bytes);
     }
     

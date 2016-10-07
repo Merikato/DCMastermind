@@ -26,8 +26,8 @@ public class TestServer {
         for(;;){
             Socket client_socket = server_socket.accept();
             MMPacket mmp = new MMPacket(client_socket);
-            byte[] bs = mmp.readPackets();
-            mmp.writePackets(bs);
+            byte[] bs = mmp.readPacket();
+            mmp.writePacket(bs);
             System.out.println(new String(bs,StandardCharsets.UTF_8));
             client_socket.close();
         }

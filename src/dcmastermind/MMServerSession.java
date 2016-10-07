@@ -27,7 +27,7 @@ public class MMServerSession {
     }
     
     private boolean setPlayAgainValue() throws IOException{
-       byte[] packet= mmPacket.readPackets();
+       byte[] packet= mmPacket.readPacket();
        byte allPacket;      
        boolean play = false;
        
@@ -54,7 +54,7 @@ public class MMServerSession {
             while(!gameOver & !mmPacket.getSocket().isClosed()){
                 
                 // read packet from user.
-                byte[] colorMessage = mmPacket.readPackets();
+                byte[] colorMessage = mmPacket.readPacket();
                 //check if msg is color
                 int colorRange =setColour(colorMessage[0]);
                 if(colorRange != -1)
@@ -70,13 +70,13 @@ public class MMServerSession {
                    int[] clues= clueGenerator(clientGuesses,answerSet);
                    //send it to the client
                    byte[] replyClientClues=colourBytes(clues);
-                   mmPacket.writePackets(replyClientClues);
+                   mmPacket.writePacket(replyClientClues);
                    
                    counter++;
                    
                     //if 10th submission then 0xFFFFFFFF
                    if(counter == 10)
-                       mmPacket.writePackets(new byte[]{0xFFFFFFFF});
+                       mmPacket.writePacket(new byte[]{0xFFFFFFFF});
 
                    
                 }

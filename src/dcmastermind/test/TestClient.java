@@ -23,8 +23,8 @@ public class TestClient {
         Socket soc = new Socket("10.172.11.194",server_port);
         System.out.println("Connected to server...sending echo string");
         MMPacket mmp = new MMPacket(soc);
-        mmp.writePackets(packet);
-        packet = mmp.readPackets();
+        mmp.writePacket(packet);
+        packet = mmp.readPacket();
         for(byte b : packet)
             System.out.println(b);
         soc.close();
