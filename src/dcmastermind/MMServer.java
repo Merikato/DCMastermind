@@ -32,6 +32,7 @@ public class MMServer {
         for(;;){
             System.out.println("Waiting for client...");
             Socket client_socket = socket.accept();
+            System.out.println("Connected to client at: " + client_socket.getLocalAddress().toString());
             if(client_socket != null){
                 MMPacket mmp = new MMPacket(client_socket);
                 //send an OK message to draw board

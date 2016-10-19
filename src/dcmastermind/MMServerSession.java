@@ -7,6 +7,7 @@ package dcmastermind;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -24,23 +25,27 @@ public class MMServerSession {
     public MMServerSession(MMPacket mmp) {
         this.playAgain = playAgain;
         this.gameOver = gameOver;
+        colours = new int[]{0,1,2,3,4,5,6,7};
         mmPacket = mmp;
     }
     
     private boolean setPlayAgainValue() throws IOException{
+       System.out.println("server reading");
        byte[] packet= mmPacket.readPacket();
+       System.out.println("Packet: \n" + Arrays.toString(packet));
+       mmPacket.writePacket(new byte[]{0x0000000A,0,0,0});
        byte allPacket;      
        boolean play = false;
        
        for(int i=0;i<packet.length;i++)
        {
            allPacket = packet[i];
-           if(allPacket == 0x00000010){
+           if(allPacket == 0x00000011){
                 play = true;
                 return play;
            }
            else {
-                playAgain = false;
+                play = false;
             //allPacket += packet[i]; //??
            }
        }     
@@ -55,22 +60,31 @@ public class MMServerSession {
                 
                 // read packet from user.
                 byte[] colorMessage = mmPacket.readPacket();
-                //check if msg is color
+                System.out.println("received packet: "+ Arrays.toString(colorMessage));
+                //check if msg is color     
+
                 int colorRange = setColour(colorMessage[0]);
                 if(colorRange != -1)
-                {                
+                {                                System.out.println("getting here");
+
                     //get user answer
-                    int[] clientGuesses=new int[8];
-                    for(int i=0;i<8;i++)
+                    int[] clientGuesses=new int[4];
+                    for(int i=0;i<4;i++)
                     {
                         clientGuesses[i]=setColour(colorMessage[i]);
                     }
                     //compare the answers
                     //reply with clues
                    int[] clues= clueGenerator(clientGuesses,answerSet);
+                  
+                   System.out.println("user guesses: "+Arrays.toString(clientGuesses));
+                   System.out.println("answer set: "+Arrays.toString(answerSet));
                    //send it to the client
-                   byte[] replyClientClues=colourBytes(clues);
+                   //byte[] replyClientClues=colourBytes(clues);
+                   byte[] replyClientClues=convertIntCluesArrayToBytes(clues);
                    mmPacket.writePacket(replyClientClues);
+                   System.out.println("clues: "+Arrays.toString(clues));
+                   System.out.println("clues in bytes: " + Arrays.toString(replyClientClues));
                    
                    counter++;
                    
@@ -85,7 +99,26 @@ public class MMServerSession {
         }
         
     }
-        
+    private byte[] convertIntCluesArrayToBytes(int[] clues){
+        byte[] byteClues = new byte[clues.length];
+        for (int i=0;i < clues.length;i++)
+        {
+           byteClues[i]= convertIntCluesToBytes(clues[i]);
+        }
+        return byteClues;
+    }
+     private byte convertIntCluesToBytes(int clue){
+         switch(clue){
+            case 0: 
+                return 0x00000000; // inplace   --change
+            case 1: 
+                return 0x00000001; // outplace -- change
+            
+            default: 
+                return -1;
+        }
+     }
+
   private int[] clueGenerator(int[] clientGuesses,int[] answerSet){
         
     List<Integer> clueList = new ArrayList<Integer>();
@@ -127,7 +160,7 @@ public class MMServerSession {
         int[] randomSet = new int[4];
         Random random = new Random();
         for(int i = 0; i < randomSet.length; i++){
-            int randomInt = random.nextInt(colours.length + 1);
+            int randomInt = random.nextInt(colours.length - 0);
             
             randomSet[i] = colours[randomInt];
         }

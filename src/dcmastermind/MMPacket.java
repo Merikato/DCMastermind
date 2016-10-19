@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.Arrays;
 
 /**
  *
@@ -44,13 +45,15 @@ public class MMPacket {
      * @throws IOException 
      */
     public byte[] readPacket()throws IOException{
+        
         byte[] byteBuffer = new byte[BUFSIZE];
         int total_bytes = 0;
         int bytes;
         while(total_bytes < BUFSIZE){
             
             if((bytes = in.read(byteBuffer, total_bytes, BUFSIZE - total_bytes))== -1){
-                throw new SocketException("Connection Closed");
+                System.out.println("Packet: \n" + (bytes));
+                //throw new SocketException("Connection Closed");
             }
             total_bytes += bytes;
         }
