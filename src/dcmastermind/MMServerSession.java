@@ -21,9 +21,10 @@ public class MMServerSession {
     private int[] colours;
     MMPacket mmPacket;
     
-    public MMServerSession() {
+    public MMServerSession(MMPacket mmp) {
         this.playAgain = playAgain;
         this.gameOver = gameOver;
+        mmPacket = mmp;
     }
     
     private boolean setPlayAgainValue() throws IOException{

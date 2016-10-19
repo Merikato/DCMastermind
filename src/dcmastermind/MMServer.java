@@ -15,23 +15,31 @@ import java.net.Socket;
  */
 public class MMServer {
 
-    private int portNumber = 50000;
+    private static int portNumber = 50000;
     private ServerSocket socket;
+    private MMServerSession Session;
     
-    public MMServer() {
+    public static void main(String[] args) throws IOException{
         
+        ServerSocket ss = new ServerSocket(50000);
+        new MMServer().createServerSocket(ss);
+    }
+    
+    public MMServer() {    
     }
     
     public void createServerSocket(ServerSocket socket) throws IOException {
         for(;;){
+            System.out.println("Waiting for client...");
             Socket client_socket = socket.accept();
-            MMPacket mmp = new MMPacket(client_socket);
-            //send an OK message to draw board 
-            
-            
-            
+            if(client_socket != null){
+                MMPacket mmp = new MMPacket(client_socket);
+                //send an OK message to draw board
+                Session = new MMServerSession(mmp);
+                Session.action();
+            }          
         }
-        
     }
+    
     
 }
