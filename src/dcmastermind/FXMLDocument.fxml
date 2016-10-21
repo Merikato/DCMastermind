@@ -1,14 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Ellipse?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dcmastermind.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="410.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dcmastermind.FXMLDocumentController">
     <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+        <Button fx:id="button" layoutX="18.0" layoutY="371.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="243.0" text="Click Me!" />
+      <ToolBar layoutY="-6.0" prefHeight="40.0" prefWidth="358.0">
+        <items>
+          <Button mnemonicParsing="false" text="Help" />
+        </items>
+      </ToolBar>
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="18.0" layoutY="55.0" prefHeight="300.0" prefWidth="243.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="28.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="29.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="29.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.0" minWidth="10.0" prefWidth="31.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.0" minWidth="10.0" prefWidth="123.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Circle fill="#ffffff00" radius="14.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <Circle fill="#ffffff00" radius="14.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <Circle fill="#ffffff00" radius="14.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Circle fill="#ffffff00" radius="14.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="9" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="9">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="295.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="295.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="295.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="295.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="8" />
+            <HBox alignment="CENTER" layoutX="130.0" layoutY="280.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="8">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="265.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="265.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="265.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="265.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="7" />
+            <HBox alignment="CENTER" layoutX="130.0" layoutY="250.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="7">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="235.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="235.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="235.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="235.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="6" />
+            <HBox alignment="CENTER" layoutX="130.0" layoutY="220.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="6">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="205.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="205.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="205.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="205.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="5" />
+            <HBox alignment="CENTER" layoutX="130.0" layoutY="190.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="5">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="175.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="175.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="175.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="175.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="4" />
+            <HBox alignment="CENTER" layoutX="130.0" layoutY="160.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="145.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="145.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="145.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="145.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="3" />
+            <HBox alignment="CENTER" layoutX="130.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="115.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="115.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="115.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="115.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="2" />
+            <HBox alignment="CENTER" layoutX="130.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="85.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="85.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="85.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="85.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="1" />
+            <HBox alignment="CENTER" layoutX="130.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <children>
+                  <Ellipse fill="WHITE" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fill="WHITE" layoutX="18.0" layoutY="24.0" radiusX="8.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </HBox>
+            <Circle fill="#ffffff00" layoutX="113.0" layoutY="55.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" />
+            <Circle fill="#ffffff00" layoutX="83.0" layoutY="55.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" />
+            <Circle fill="#ffffff00" layoutX="53.0" layoutY="55.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" />
+            <Circle fill="#ffffff00" layoutX="24.0" layoutY="55.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+         </children>
+      </GridPane>
+      <VBox alignment="CENTER" layoutX="299.0" layoutY="142.0" prefHeight="213.0" prefWidth="36.0">
+         <children>
+            <Circle fill="RED" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="YELLOW" layoutX="28.0" layoutY="192.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="GREEN" layoutX="28.0" layoutY="193.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="BLUE" layoutX="28.0" layoutY="195.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#551a8b" layoutX="28.0" layoutY="196.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="PINK" layoutX="28.0" layoutY="198.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="28.0" layoutY="199.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="BROWN" layoutX="28.0" layoutY="201.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
